@@ -40,7 +40,7 @@ ssh option with modern ssh in dangerous but connectable option perplexity sugges
 * #KexAlgorithms +diffie-hellman-group-exchange-sha1
 * #Ciphers aes128-cbc,3des-cbc
 
-* qemu option
+# qemu option
 perplexity suggested:
 * qemu-system-i386 -m 128M -hda ... -cdrom ... -boot d -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::10022-:22
 * * 128M for installation to avoid swap -1 size.
