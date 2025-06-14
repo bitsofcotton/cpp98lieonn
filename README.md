@@ -14,12 +14,12 @@ In haiku-R1alpha3, the memory usage endurance causes kernel crash with MemoryMan
 
 The huge memory usage we need is from the gcc 2.95.3 variants' implementation so we should use #if !defined... directive to exclude some amount of the non-used code bases on the certain compilers (however, some test isn't improves by this).
 
-Some msvcc option needs /Zm200 or so, however, our template depth is too deep to compile in some of the cases we target, so we should reduce template deep depth.
+Some msvcc option needs /Zm200 or so, however, our template depth is too deep to compile in some of the cases we target, instead of them, we target this condition with lieonn-target.hpp.
 
 We'll test in another system next but it's on qemu-system-i386 on our machine...
 
 # Binary we test on qemu-system-i386
-However, if our machine is infected, this either not be reliable.
+However, if our machine is infected, this either isn't reliable.
 * 1.6.2
 * "netbsd-GENERIC.gz" : md5:932cf3d8532376e801d7191ca73cebf0
 * "base.tgz" : md5:24f387621d3c7545acf25ea07d5ebdd8
@@ -32,4 +32,11 @@ However, if our machine is infected, this either not be reliable.
 * 98
 * "Win98 SE.iso"   : md5:8f145dd1e2d673377dc8b0a8a251eee0
 * "VCL600JPN1.cdr" : md5:e468083cf19363d729f9726f2e527ca0
+
+# scp option
+ssh option with modern ssh in dangerous but connectable option perplexity suggested:
+    #HostKeyAlgorithms ssh-rsa
+    #PubkeyAcceptedAlgorithms ssh-rsa
+    #KexAlgorithms +diffie-hellman-group-exchange-sha1
+    #Ciphers aes128-cbc,3des-cbc
 

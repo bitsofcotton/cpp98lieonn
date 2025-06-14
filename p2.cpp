@@ -187,30 +187,30 @@ int main(int argc, const char* argv[]) {
     }
     break;
   }/* case 'j': {
-    pslip_t<num_t> pslip(argv[1][1] == '+' ? 7 : 0);
+    pslip_t pslip(argv[1][1] == '+' ? 7 : 0);
     num_t d(t);
     num_t M(d);
-    idFeeder<num_t> in(argv[1][1] == '+' ? 7 : 0);
+    idFeeder in(argv[1][1] == '+' ? 7 : 0);
     while(std::getline(std::cin, s, '\n')) {
       std::stringstream ins(s);
       ins >> d;
       std::cout << (M *= d) << ", " << std::flush;
       std::cout <<
-        (M = pSlipGulf0short<num_t>(in.next(d), pslip, t ++) ) <<
+        (M = pSlipGulf0short(in.next(d), pslip, t ++) ) <<
           ", " << d << std::endl << std::flush;
     }
     break;
   } */ case 'c': case 'C': {
     int length(t);
     if(2 < argc) length = ::atoi(argv[2]);
-    idFeeder<num_t> p(length);
+    idFeeder p(length);
     num_t d(t);
     num_t M(d);
     while(std::getline(std::cin, s, '\n')) {
       std::stringstream ins(s);
       ins >> d;
       std::cout << (argv[1][0] == 'C' ? d - M : d * M) << ", " << std::flush;
-      std::cout << (M = p012next<num_t>(p.next(d)) ) << std::endl << std::flush;
+      std::cout << (M = p012next(p.next(d)) ) << std::endl << std::flush;
     }
     break;
   } case 'f': {
@@ -256,8 +256,8 @@ int main(int argc, const char* argv[]) {
       vector<SimpleMatrix<num_t> > p;
       p.emplace_back(SimpleMatrix<num_t>(sq, sq));
       for(int i = 0; i < p[0].rows(); i ++)
-        p[0].row(i) = binMargin<num_t>(offsetHalfV<num_t>(w.subVector(i * p[0].cols(), p[0].cols())));
-      if(! savep2or3<num_t>((std::string("rand_pgm-") + to_string(t ++) + std::string(".pgm")).c_str(), p) ) {
+        p[0].row(i) = binMargin(offsetHalfV(w.subVector(i * p[0].cols(), p[0].cols())));
+      if(! savep2or3((std::string("rand_pgm-") + to_string(t ++) + std::string(".pgm")).c_str(), p) ) {
         std::cerr << "failed to save." << std::endl;
         // if saveing file failed, safe to exit.
         break;
@@ -298,7 +298,7 @@ int main(int argc, const char* argv[]) {
           M.emplace_back(d == num_t(int(0)) ? d : in[i] / d);
         if(M.size() == b.size()) {
           vector<int> nilvi;
-          const pair<num_t, num_t> res(pSubesube<num_t>(d, make_pair(M, b), t ++, nilvi));
+          const pair<num_t, num_t> res(pSubesube(d, make_pair(M, b), t ++, nilvi));
           std::cout << res.first << ", " << res.second << std::endl << std::flush;
         } else
           std::cout << num_t(int(0)) << ", " << num_t(int(0)) << std::endl << std::flush;

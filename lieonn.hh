@@ -5751,7 +5751,7 @@ public:
     return *this;
   }
   inline T distance(const match_t<T>& other, const Vec& p) {
-    const match_t<T> d(transform(p) - other.transform(p));
+    const Vec d(transform(p) - other.transform(p));
     return sqrt(d.dot(d));
   }
   inline vector<Veci> hullConv(const vector<Veci>& srchull) const {
