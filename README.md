@@ -50,3 +50,6 @@ perplexity suggested:
 
 * avoiding recursive reference in source code
 struct ..., typedef chain is suggested by perplexity.
+
+# lieonn.hh version
+* we suggested 20250613 version.
