@@ -35,8 +35,18 @@ However, if our machine is infected, this either isn't reliable.
 
 # scp option
 ssh option with modern ssh in dangerous but connectable option perplexity suggested:
-    #HostKeyAlgorithms ssh-rsa
-    #PubkeyAcceptedAlgorithms ssh-rsa
-    #KexAlgorithms +diffie-hellman-group-exchange-sha1
-    #Ciphers aes128-cbc,3des-cbc
+* #HostKeyAlgorithms ssh-rsa
+* #PubkeyAcceptedAlgorithms ssh-rsa
+* #KexAlgorithms +diffie-hellman-group-exchange-sha1
+* #Ciphers aes128-cbc,3des-cbc
 
+* qemu option
+perplexity suggested:
+* qemu-system-i386 -m 128M -hda ... -cdrom ... -boot d -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::10022-:22
+* * 128M for installation to avoid swap -1 size.
+* * 2048M for normal use.
+* qemu-system-i386 -M pc -m 256M -device sb16,audiodev=audio0 -audiodev ...,id=audio0 -cdrom ... -vga cirrus -rtc base=localtime,clock=host -parallel none -serial none -drive file=...,media=disk,cache=writeback -netdev user,id=user.0 -device ne2k_pci,netdev=user.0 -boot d -usb -cpu pentium
+* * -m 1024M -cpu pentium3 for normal use.
+
+* avoiding recursive reference in source code
+struct ..., typedef chain is suggested by perplexity.
