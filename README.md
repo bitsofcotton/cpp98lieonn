@@ -53,3 +53,9 @@ struct ..., typedef chain is suggested by perplexity.
 
 # lieonn.hh version
 * we suggested 20250613 version.
+
+# cross checked by another qemu-virtual machine
+* Win8 + VS2012Express with 2025/10 patch
+* macos BigSur + command line tools with 2025/10 patch
+They also caused same results on our VM.
+
